@@ -3,3 +3,6 @@
 ################################################################################
 
 /TeamPi-TwitterHashtag/.vs/TeamPi-TwitterHashtag
+/TeamPi-TwitterHashtag/HashtagWebApp/bin/Debug/netcoreapp3.1
+/TeamPi-TwitterHashtag/HashtagWebApp/obj
+/TeamPi-TwitterHashtag/TwitterHashtag/.env

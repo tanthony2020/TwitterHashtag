@@ -1,0 +1,9 @@
+{
+  "name": "twitter-hashtag",
+  "version": "0.0.0",
+  "description": "TwitterHashtag",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  }
+}
