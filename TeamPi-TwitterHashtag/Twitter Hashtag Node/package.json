@@ -1,0 +1,14 @@
+{
+  "name": "twitter-hashtag-node",
+  "version": "0.0.0",
+  "description": "Twitter Hashtag Node",
+  "scripts": {
+    "start": "node server"
+  },
+  "engines": {
+    "node": "~6.10.x"
+  },
+  "author": {
+    "name": ""
+  }
+}
