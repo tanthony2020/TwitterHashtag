@@ -7,3 +7,7 @@
 /TeamPi-TwitterHashtag/HashtagWebApp/obj
 /TeamPi-TwitterHashtag/TwitterHashtag/.env
 /TeamPi-TwitterHashtag/HashtagAPI/obj/Debug/netcoreapp3.1
+/TeamPi-TwitterHashtag/HashtagAPI/bin/Debug/netcoreapp3.1
+/TeamPi-TwitterHashtag/HashtagAPI/obj
+/TeamPi-TwitterHashtag/TwitterHashtag/bin
+/TeamPi-TwitterHashtag/TwitterHashtag/obj/Debug
