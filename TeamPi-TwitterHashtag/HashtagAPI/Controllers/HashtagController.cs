@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HashtagAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,6 +14,12 @@ namespace HashtagAPI.Controllers
     [ApiController]
     public class HashtagController : ControllerBase
     {
+        private readonly HashtagContext _context;
+
+        public HashtagController(HashtagContext context)
+        {
+            _context = context;
+        }
         // GET: api/<HashtagController>
         [HttpGet]
         public string Get()
@@ -19,29 +27,29 @@ namespace HashtagAPI.Controllers
             return "Hashtag API Started";
         }
 
-        // GET api/<HashtagController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [Route("GetTweets")]
+        public ActionResult GetTweets()
         {
-            return "value";
+            var tweetLog = _context.TweetLog.FirstOrDefault();
+            return Ok(tweetLog);
         }
 
-        // POST api/<HashtagController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [Route("AddTweet")]
+        public ActionResult AddTweet()
         {
-        }
+            var headers = Request.Headers;
+            if (headers.TryGetValue("tweet", out var tweetValue))
+            {
+                var tweetToAdd = JsonConvert.DeserializeObject<TweetLog>(tweetValue);
+                _context.TweetLog.Add(tweetToAdd);
+            }
+            else
+            {
+                return BadRequest("No tweet found in header");
+            }
 
-        // PUT api/<HashtagController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+            return Ok();
 
-        // DELETE api/<HashtagController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }
