@@ -1,8 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace HashtagAPI.Models
 {
@@ -23,14 +21,15 @@ namespace HashtagAPI.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //optionsBuilder.UseSqlServer("server=DESKTOP-00RON3V;user=sa;password=12345;database=Hashtag");
             }
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TweetLog>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.TweetId);
+                //entity.HasNoKey();
 
                 entity.Property(e => e.Party)
                     .IsRequired()
