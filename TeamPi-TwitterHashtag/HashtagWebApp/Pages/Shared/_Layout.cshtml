@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - #TwitterTrends</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/datatables.css" />
 </head>
 <body>
     <header>
@@ -42,11 +43,13 @@
         </div>
         <img src="https://dev.azure.com/tanthony2020/Twitter%20Hashtag/_apis/build/status/Twitter%20Hashtag-ASP.NET-CI?branchName=dev" />
     </footer>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/DataTables-1.10.22/js/jquery.dataTables.js" asp-append-version="true"></script>
+    <script src="~/datatables.min.js" asp-append-version="true"></script>
+    <script src="~/Responsive-2.2.6/js/dataTables.responsive.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
-    @RenderSection("Scripts", required: false)
+    @RenderSection("Scripts", required: false)                
 </body>
 </html>

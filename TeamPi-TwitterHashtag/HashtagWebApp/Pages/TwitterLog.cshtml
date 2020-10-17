@@ -1,0 +1,43 @@
+﻿@page
+@using HashtagWebApp.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model HashtagWebApp.Pages.TwitterLogModel
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+    var tweets = (List<TweetLog>)ViewData["tweets"];
+}
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="row">
+        This is where the counts will go when I get that part done.
+    </div>
+    <div class="row">
+        <table id="tweets" class="display">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Twitter Handle</th>
+                <th>Party</th>
+                <th>Tweet</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var tweet in tweets)
+            {
+                <tr>
+                    <td>@tweet.TweetDateTime</td>
+                    <td>@tweet.TwitterHandle</td>
+                    <td>@tweet.Party</td>
+                    <td>@tweet.Tweet</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p>You must be logged in to see this page</p>
+}
