@@ -1,10 +1,16 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "FAU";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">#TwitterTrends</h1>
+    <p>This application was created as part of a group project at Florida Atlantic University, College of Engineering & Computer Science, Software Engineering class. The developers who created this site are Tammi Anthony, Ari Shaller and Caren Youssef.</p>
+    <p>The purpose of this project is to provide a fun way to track popular hashtags on Twitter. As we near Election day, many voting and party-affiliated hashtags are being used on Twitter. As such, our team plans to track two hashtags: #Republican and #Democrat and log tweets as they are tweeted out. </p>
+    <p>This web application allows users to register an account and gain access to the tweets logged as part of this project.</p>
+    <p>Once registered, users will be able to see the number of #Republican and number of #Democrat tweets at the top of the page as well as tweets themselves. Users will be able to filter tweets and sort columns.</p>
+    <p>This project was an IoT project so we used a Raspberry PI in conjunction with Node.js to listen for tweets using Twitter API. Once a tweet is sent, the script will log the details of that tweet in a table. </p>
+    <p>Every time #Democrat is tweeted a <span style="color:blue">blue LED light will light</span> up on the Breadboard connected to the PI. </p>
+    <p>Every time #Republican is tweeted a <span style="color:red">red LED light will light</span> up on the breadboard connect to the PI.</p>
 </div>
