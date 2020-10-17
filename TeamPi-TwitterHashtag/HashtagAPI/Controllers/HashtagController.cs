@@ -32,7 +32,7 @@ namespace HashtagAPI.Controllers
         [Route("GetTweets")]
         public ActionResult GetTweets()
         {
-            var tweetLog = _context.TweetLog.FirstOrDefault();
+            var tweetLog = _context.TweetLog.ToList();
             return Ok(tweetLog);
         }
 
