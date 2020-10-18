@@ -4,12 +4,19 @@
 // Write your Javascript code.
 
 $(document).ready(function () {
-    var tweettable = $('#tweets').DataTable({
+    var tweetTable = $('#tweets').DataTable({
         "bAutoWidth": true,
-        scrollY: '50vh',
+        scrollY: '45vh',
         responsive: true,
         scrollCollapse: true,
-        "order": [[1, "DESC"]]
+        "rowCallback": function(row, data, index) {
+            if (data[2] === "D") {
+                $("td", row).css("border-color", "blue");
+            }
+            if (data[2] === "R") {
+                $("td", row).css("border-color", "red");
+            }
+        },
+        "order": [[0, "DESC"]]
     });
-   // tweettable.height = "100px";
 });

@@ -20,7 +20,7 @@ namespace HashtagWebApp.Pages
             _config = configuration;
         }
         [ViewData]
-        public List<TweetLog> Tweets { get; set; }
+        public DisplayTweets Tweets { get; set; }
         public void OnGet()
         {
             var client = new RestClient { BaseUrl = new Uri(_config.GetSection("BaseAPI").Value) };
@@ -31,7 +31,7 @@ namespace HashtagWebApp.Pages
             {
                 var results = response.Content;
                 // convert to Json Object
-                Tweets = JsonConvert.DeserializeObject<List<TweetLog>>(results);
+                Tweets = JsonConvert.DeserializeObject<DisplayTweets>(results);
                 //var tweetLog = new Tweets { tweets = tweets };
                 
             }

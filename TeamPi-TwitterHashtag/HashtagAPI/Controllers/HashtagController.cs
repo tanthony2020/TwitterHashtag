@@ -32,16 +32,17 @@ namespace HashtagAPI.Controllers
         [Route("GetTweets")]
         public ActionResult GetTweets()
         {
-            var tweetLog = _context.TweetLog.ToList();
-            return Ok(tweetLog);
+            var display = new DisplayTweets();
+            var tweetLog = _context.TweetLog.OrderByDescending(x=>x.TweetDateTime).ToList();
+            display.Tweets = tweetLog;
+            display.DemocratTweets = _context.TweetLog.Count(x => x.Party == "D");
+            display.RepublicanTweets = _context.TweetLog.Count(x => x.Party == "R");
+            return Ok(display);
         }
 
         [Route("AddTweet")]
         public ActionResult AddTweet(IncomingTweet tweetToAdd)
         {
-            //var tweetToAdd = JsonConvert.DeserializeObject<IncomingTweet>(jsonResult);
-            //var tweetToAdd = new IncomingTweet();
-            
             var tweet = new TweetLog
             {
                 TweetId = tweetToAdd.TweetId, Party = tweetToAdd.Party, Tweet = tweetToAdd.Tweet, TwitterHandle = tweetToAdd.TwitterHandle

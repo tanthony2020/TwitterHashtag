@@ -6,12 +6,20 @@
 @model HashtagWebApp.Pages.TwitterLogModel
 @{
     Layout = "~/Pages/Shared/_Layout.cshtml";
-    var tweets = (List<TweetLog>)ViewData["tweets"];
+    var tweets = (DisplayTweets)ViewData["tweets"];
 }
 @if (SignInManager.IsSignedIn(User))
 {
-    <div class="row">
-        This is where the counts will go when I get that part done.
+    <div class="row col-md-12">
+        <div class="col-md-6" style="float:left">
+            <p style="color:blue" class="align-content-center">@tweets.DemocratTweets #Democrat Tweets</p>
+        </div>
+        <div class="col-md-6" style="float: right">
+            <p style="color:red" class="align-content-center">@tweets.RepublicanTweets #Republican Tweets</p>
+        </div>
+    </div>
+    <div class="row col-md-12" style="text-align: center">
+        <p >Tweets from <b> @tweets.Tweets.Min(x=>x.TweetDateTime).ToUniversalTime()</b> To <b> @tweets.Tweets.Max(x=>x.TweetDateTime).ToUniversalTime() </b></p>
     </div>
     <div class="row">
         <table id="tweets" class="display">
@@ -24,7 +32,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach (var tweet in tweets)
+            @foreach (var tweet in tweets.Tweets)
             {
                 <tr>
                     <td>@tweet.TweetDateTime</td>
