@@ -33,7 +33,7 @@ namespace HashtagAPI.Controllers
         public ActionResult GetTweets()
         {
             var display = new DisplayTweets();
-            var tweetLog = _context.TweetLog.OrderByDescending(x=>x.TweetDateTime).ToList();
+            var tweetLog = _context.TweetLog.OrderByDescending(x=>x.TweetDateTime).Take(500).ToList();
             display.Tweets = tweetLog;
             display.DemocratTweets = _context.TweetLog.Count(x => x.Party == "D");
             display.RepublicanTweets = _context.TweetLog.Count(x => x.Party == "R");
