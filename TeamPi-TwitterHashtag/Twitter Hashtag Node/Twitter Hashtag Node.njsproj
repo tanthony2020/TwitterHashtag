@@ -28,10 +28,12 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include=".env" />
+    <Content Include="gulpfile.js" />
+    <Content Include="test.js" />
     <Content Include="server.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config" />
-    <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />

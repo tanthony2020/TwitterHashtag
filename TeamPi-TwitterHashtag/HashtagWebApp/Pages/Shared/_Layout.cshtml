@@ -3,15 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - HashtagWebApp</title>
+    <title>Tweets - #TwitterTrends</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/datatables.css" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">HashtagWebApp</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index"><img src="~/images/faulogo.png" width="256" height="95"/></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -38,14 +39,17 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - HashtagWebApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2020 - #TwitterTrends - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
+        <img src="https://dev.azure.com/tanthony2020/Twitter%20Hashtag/_apis/build/status/Twitter%20Hashtag-ASP.NET-CI?branchName=dev" />
     </footer>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/DataTables-1.10.22/js/jquery.dataTables.js" asp-append-version="true"></script>
+    <script src="~/datatables.min.js" asp-append-version="true"></script>
+    <script src="~/Responsive-2.2.6/js/dataTables.responsive.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
-    @RenderSection("Scripts", required: false)
+    @RenderSection("Scripts", required: false)                
 </body>
 </html>
