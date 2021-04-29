@@ -7,8 +7,6 @@ var candyman = new Candyman({
         { devicename: 'pi@tammispi', hostname: 'tammispi' }
     ],
     projectName: 'TwitterHashtag',
-    user: 'pi',
-    password: 'Simba0405$',
     startFile: 'server.js'
 });
 gulp.task('deploy', function () {
